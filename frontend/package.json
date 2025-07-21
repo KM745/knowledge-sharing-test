@@ -5,7 +5,6 @@
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@toast-ui/editor": "^3.2.2",
     "@toast-ui/react-editor": "^3.2.3",
@@ -23,10 +22,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm install --legacy-peer-deps && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm install --legacy-peer-deps && react-scripts build"
+    "heroku-postbuild": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
@@ -47,11 +46,7 @@
     ]
   },
   "homepage": ".",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "react-scripts build"
+  "devDependencies": {
+    "@testing-library/react": "^12.1.5"
   }
 }
