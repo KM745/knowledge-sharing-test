@@ -141,17 +141,17 @@ function App() {
   // 一覧画面
   if (page === 'list') {
     return (
-      <div style={{ maxWidth: 800, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+      <div className="panel" style={{ maxWidth: 800, margin: '2rem auto', fontFamily: 'sans-serif' }}>
         <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
-        <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
+        <div style={{ display: 'flex', gap: 8, marginBottom: 24 }}>
           <input
             type="text"
             placeholder="検索"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            style={{ flex: 1, padding: 8 }}
+            style={{ flex: 1 }}
           />
-          <select value={tag} onChange={e => setTag(e.target.value)} style={{ padding: 8 }}>
+          <select value={tag} onChange={e => setTag(e.target.value)}>
             <option value="">タグ選択</option>
             <option value="業務">業務</option>
             <option value="システム">システム</option>
@@ -160,8 +160,8 @@ function App() {
             <option value="用語">用語</option>
             <option value="教育">教育</option>
           </select>
-          <button style={{ padding: 8 }} onClick={() => setPage('create')}>新規登録</button>
-          <button style={{ padding: 8 }} onClick={() => setPage('chat')}>AIチャット</button>
+          <button onClick={() => setPage('create')}>新規登録</button>
+          <button onClick={() => setPage('chat')}>AIチャット</button>
         </div>
         {loading ? (
           <div>読み込み中...</div>
@@ -207,19 +207,19 @@ function App() {
     if (!detail) return null;
     const html = DOMPurify.sanitize(marked.parse(detail.content || '', { async: false }));
     return (
-      <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+      <div className="panel" style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
         <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>{detail.title}</h2>
-        <div style={{ marginBottom: 8 }}>{detail.tags.map(t => <span key={t} className="tag-badge">{t}</span>)}</div>
-        <div style={{ color: '#888', marginBottom: 8 }}>{detail.date} 作成者: {detail.author}</div>
-        <div style={{ marginBottom: 16 }} dangerouslySetInnerHTML={{ __html: html }} />
-        <button style={{ marginRight: 8 }} onClick={() => {
+        <div style={{ marginBottom: 12 }}>{detail.tags.map(t => <span key={t} className="tag-badge">{t}</span>)}</div>
+        <div style={{ color: '#888', marginBottom: 12 }}>{detail.date} 作成者: {detail.author}</div>
+        <div style={{ marginBottom: 24 }} dangerouslySetInnerHTML={{ __html: html }} />
+        <button style={{ marginRight: 12 }} onClick={() => {
           setFormTitle(detail.title);
           setEditFormTags(detail.tags);
           setPage('edit');
           setSelected(detail);
         }}>編集</button>
-        <button style={{ marginRight: 8 }} onClick={async () => {
+        <button style={{ marginRight: 12 }} onClick={async () => {
           if (!detail) return;
           setDeleteError('');
           const confirm1 = window.confirm('本当に削除しますか？');
@@ -280,16 +280,16 @@ function App() {
       }
     };
     return (
-      <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+      <div className="panel" style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
         <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>ナレッジ新規登録</h2>
-        <div style={{ marginBottom: 8 }}>
+        <div style={{ marginBottom: 12 }}>
           <input
             type="text"
             placeholder="タイトル"
             value={formTitle}
             onChange={e => setFormTitle(e.target.value)}
-            style={{ width: '100%', padding: 8, marginBottom: 8 }}
+            style={{ width: '100%' }}
           />
           <Editor
             ref={editorRef}
@@ -300,10 +300,10 @@ function App() {
             useCommandShortcut={true}
             placeholder="本文（Markdown形式可）"
           />
-          <div style={{ margin: '8px 0' }}>
+          <div style={{ margin: '12px 0' }}>
             <span>タグ:</span>
             {tagOptions.map(tag => (
-              <label key={tag} style={{ marginRight: 8 }}>
+              <label key={tag} style={{ marginRight: 12 }}>
                 <input
                   type="checkbox"
                   checked={formTags.includes(tag)}
@@ -315,7 +315,7 @@ function App() {
           </div>
         </div>
         {createError && <div style={{ color: 'red', marginBottom: 8 }}>{createError}</div>}
-        <button style={{ marginRight: 8 }} onClick={handleCreate} disabled={createLoading}>{createLoading ? '登録中...' : '登録'}</button>
+        <button style={{ marginRight: 12 }} onClick={handleCreate} disabled={createLoading}>{createLoading ? '登録中...' : '登録'}</button>
         <button onClick={() => setPage('list')} disabled={createLoading}>キャンセル</button>
       </div>
     );
@@ -355,16 +355,16 @@ function App() {
       }
     };
     return (
-      <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+      <div className="panel" style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
         <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>ナレッジ編集</h2>
-        <div style={{ marginBottom: 8 }}>
+        <div style={{ marginBottom: 12 }}>
           <input
             type="text"
             placeholder="タイトル"
             value={formTitle}
             onChange={e => setFormTitle(e.target.value)}
-            style={{ width: '100%', padding: 8, marginBottom: 8 }}
+            style={{ width: '100%' }}
           />
           <Editor
             ref={editEditorRef}
@@ -375,10 +375,10 @@ function App() {
             useCommandShortcut={true}
             placeholder="本文（Markdown形式可）"
           />
-          <div style={{ margin: '8px 0' }}>
+          <div style={{ margin: '12px 0' }}>
             <span>タグ:</span>
             {tagOptions.map(tag => (
-              <label key={tag} style={{ marginRight: 8 }}>
+              <label key={tag} style={{ marginRight: 12 }}>
                 <input
                   type="checkbox"
                   checked={editFormTags.includes(tag)}
@@ -390,7 +390,7 @@ function App() {
           </div>
         </div>
         {editError && <div style={{ color: 'red', marginBottom: 8 }}>{editError}</div>}
-        <button style={{ marginRight: 8 }} onClick={handleEdit} disabled={editLoading}>{editLoading ? '更新中...' : '更新'}</button>
+        <button style={{ marginRight: 12 }} onClick={handleEdit} disabled={editLoading}>{editLoading ? '更新中...' : '更新'}</button>
         <button onClick={() => setPage('list')} disabled={editLoading}>キャンセル</button>
       </div>
     );
@@ -403,23 +403,23 @@ function App() {
       setChatAnswer('ご質問ありがとうございます。AI回答のサンプルです。\n（本番ではナレッジをもとにAIが回答します）');
     };
     return (
-      <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+      <div className="panel" style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
         <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>AIチャット</h2>
-        <div style={{ marginBottom: 8 }}>
+        <div style={{ marginBottom: 12 }}>
           <textarea
             placeholder="質問を入力してください"
             value={chatQuestion}
             onChange={e => setChatQuestion(e.target.value)}
-            style={{ width: '100%', height: 60, padding: 8, marginBottom: 8 }}
+            style={{ width: '100%', height: 60 }}
           />
         </div>
-        <button style={{ marginRight: 8 }} onClick={handleSend}>送信</button>
+        <button style={{ marginRight: 12 }} onClick={handleSend}>送信</button>
         <button onClick={() => setPage('list')}>一覧に戻る</button>
         {chatAnswer && (
-          <div style={{ marginTop: 24, background: '#f6f6f6', padding: 16, borderRadius: 8 }}>
+          <div style={{ marginTop: 28, background: '#f6f6f6', padding: 20, borderRadius: 12 }}>
             <strong>AIの回答:</strong>
-            <div style={{ whiteSpace: 'pre-wrap', marginTop: 8 }}>{chatAnswer}</div>
+            <div style={{ whiteSpace: 'pre-wrap', marginTop: 10 }}>{chatAnswer}</div>
           </div>
         )}
       </div>
