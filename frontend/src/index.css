@@ -1,14 +1,14 @@
 body {
   font-family: 'Yu Gothic UI', 'Noto Sans JP', 'Meiryo', sans-serif;
-  background: #f7f8fa;
-  color: #333;
+  background: #f9f7f8;
+  color: #3a3a3a;
   margin: 0;
   padding: 0;
 }
 
 h1, h2, h3, h4, h5 {
   font-weight: 700;
-  color: #2d7ff9;
+  color: #e07a9a; /* 桜色ピンク */
   margin-top: 0;
   margin-bottom: 1.2em;
   letter-spacing: 0.02em;
@@ -16,24 +16,24 @@ h1, h2, h3, h4, h5 {
 
 input, textarea, select {
   font-family: inherit;
-  border: 1.5px solid #e0e6ed;
+  border: 1.5px solid #e8dbe5;
   border-radius: 10px;
   padding: 12px;
   margin-bottom: 12px;
   background: #fff;
   transition: border 0.2s, box-shadow 0.2s;
-  box-shadow: 0 1px 4px #e3f0ff33;
+  box-shadow: 0 1px 4px #f7e6ee33;
   font-size: 1.05em;
 }
 input:focus, textarea:focus, select:focus {
-  border: 1.5px solid #2d7ff9;
+  border: 1.5px solid #e07a9a;
   outline: none;
-  box-shadow: 0 2px 8px #2d7ff91a;
+  box-shadow: 0 2px 8px #e07a9a22;
 }
 
 button {
   font-family: inherit;
-  background: #2d7ff9;
+  background: linear-gradient(90deg, #f7c7d6 0%, #e07a9a 100%);
   color: #fff;
   border: none;
   border-radius: 24px;
@@ -42,29 +42,29 @@ button {
   font-weight: 600;
   margin: 6px 6px 6px 0;
   cursor: pointer;
-  box-shadow: 0 2px 8px #2d7ff91a;
+  box-shadow: 0 2px 8px #e07a9a1a;
   transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
   letter-spacing: 0.03em;
 }
 button:hover {
-  background: #1a5fcc;
-  box-shadow: 0 4px 16px #2d7ff933;
+  background: linear-gradient(90deg, #e07a9a 0%, #f7c7d6 100%);
+  box-shadow: 0 4px 16px #e07a9a33;
   transform: translateY(-2px) scale(1.03);
 }
 
 /* タグバッジ */
 .tag-badge {
   display: inline-block;
-  background: #e3f0ff;
-  color: #2d7ff9;
+  background: #fbeaf2;
+  color: #e07a9a;
   border-radius: 14px;
   padding: 4px 16px;
   font-size: 1em;
   font-weight: 600;
   margin-right: 8px;
   margin-bottom: 2px;
-  box-shadow: 0 1px 4px #e3f0ff33;
-  border: 1px solid #c7e0ff;
+  box-shadow: 0 1px 4px #f7e6ee33;
+  border: 1px solid #f7c7d6;
 }
 
 /* テーブル */
@@ -74,7 +74,7 @@ table {
   border-spacing: 0;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 2px 16px #2d7ff91a;
+  box-shadow: 0 2px 16px #e07a9a1a;
   overflow: hidden;
 }
 th, td {
@@ -82,38 +82,48 @@ th, td {
   text-align: left;
 }
 th {
-  background: #e3f0ff;
-  color: #2d7ff9;
+  background: #fbeaf2;
+  color: #e07a9a;
   font-weight: 700;
-  border-bottom: 2px solid #c7e0ff;
+  border-bottom: 2px solid #f7c7d6;
 }
 tr:nth-child(even) td {
-  background: #f7f8fa;
+  background: #f9f7f8;
 }
 tr:hover td {
-  background: #e0e6ed;
+  background: #f7e6ee;
 }
 
 /* チェックボックスラベル */
 label > input[type="checkbox"] {
-  accent-color: #2d7ff9;
+  accent-color: #e07a9a;
   margin-right: 4px;
 }
 
 /* エディタのカスタム */
 .toastui-editor-defaultUI {
   border-radius: 14px;
-  box-shadow: 0 2px 8px #e3f0ff33;
-  border: 1.5px solid #e0e6ed;
+  box-shadow: 0 2px 8px #f7e6ee33;
+  border: 1.5px solid #e8dbe5;
 }
 
 /* 汎用カード・パネル */
 .panel, .card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 2px 16px #2d7ff91a;
+  box-shadow: 0 2px 16px #e07a9a1a;
   padding: 2em 2em 1.5em 2em;
   margin-bottom: 2em;
+}
+
+/* リンク */
+a {
+  color: #e07a9a;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #b85c7a;
 }
 
 /* レスポンシブ */
