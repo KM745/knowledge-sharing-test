@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ナレッジシェアリングシステム（MVPベータ版）開発振り返り</title>
+  <style>
+    body {
+      font-family: 'Yu Gothic UI', 'YuGothic', 'Meiryo', sans-serif;
+      background: #f7f8fa;
+      color: #222;
+      margin: 0;
+      padding: 2em;
+    }
+    h1, h2 {
+      color: #2d7ff9;
+    }
+    .point {
+      background: #ffe066;
+      border-radius: 8px;
+      padding: 0.5em 1em;
+      margin: 1em 0;
+      display: inline-block;
+      font-weight: bold;
+    }
+    .note {
+      color: #c00;
+      background: #fff3cd;
+      border-left: 4px solid #ffa502;
+      padding: 0.7em 1em;
+      margin-bottom: 2em;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    ul {
+      margin-bottom: 1.5em;
+    }
+    .section {
+      margin-bottom: 2em;
+    }
+    .system {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 1em;
+      margin-bottom: 2em;
+    }
+    .diagram {
+      font-size: 0.95em;
+      background: #f0f4ff;
+      border-left: 4px solid #2d7ff9;
+      padding: 1em;
+      margin: 1em 0;
+      border-radius: 6px;
+    }
+    .future {
+      background: #e3f6ff;
+      border-left: 4px solid #2d7ff9;
+      padding: 0.7em 1em;
+      margin-top: 1em;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>ナレッジシェアリングシステム（MVPベータ版）開発振り返り</h1>
+
+  <div class="note">
+    ※ 本システムはMVP（Minimum Viable Product）・ベータ版として開発中です。<br>
+    主要機能は実装済みですが、今後さらなる機能追加・改善・本番運用に向けた拡張が予定されています。
+  </div>
+
+  <div class="section">
+    <h2>1. 大まかな要件</h2>
+    <ul>
+      <li>ナレッジ（知識）をMarkdown形式で登録・編集・削除・検索できる</li>
+      <li>WYSIWYGエディタでMarkdown未経験者も直感的に入力可能</li>
+      <li>タグ・カテゴリによる分類と検索</li>
+      <li>AIチャットによるナレッジベースQ&A（RAG方式）</li>
+      <li>SSO（Google）によるログイン・ユーザ管理（管理者/一般）</li>
+      <li>削除は2段階認証で誤操作防止</li>
+      <li>日本語UI・「Yu Gothic UI」フォント・ポップなデザイン</li>
+      <li>無料クラウド（Render）で社内限定公開</li>
+    </ul>
+    <div style="color:#c00; font-size:0.95em; margin-top:-1em; margin-bottom:1em;">
+      ※ 現時点ではMVPのため、AIチャットやSSOなど一部機能は今後拡張予定です。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 使用ライブラリ・技術</h2>
+    <ul>
+      <li><b>バックエンド:</b> Python, FastAPI, Uvicorn, CORS Middleware</li>
+      <li><b>フロントエンド:</b> React (TypeScript), Toast UI Editor, marked, DOMPurify</li>
+      <li><b>デプロイ:</b> Render (Web Service/Static Site), GitHub</li>
+      <li><b>その他:</b> npm, venv, PowerShell, Git</li>
+    </ul>
+  </div>
+
+  <div class="section system">
+    <h2>3. システム構成図（概要）</h2>
+    <div class="diagram">
+      <b>ユーザ</b>（ブラウザ）<br>
+      ↓<br>
+      <b>フロントエンド</b>（React, Toast UI Editor, etc.）<br>
+      ↓ API通信（fetch）<br>
+      <b>バックエンド</b>（FastAPI）<br>
+      ↓<br>
+      <b>（MVP段階: メモリ内データ）</b><br>
+      <b>今後: DB連携・AIサービス連携</b>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 苦労した点</h2>
+    <ul>
+      <li>React/Toast UI Editor/TypeScript/markedのバージョン整合性</li>
+      <li>PowerShellの実行ポリシーや仮想環境の権限問題</li>
+      <li>RenderでのNode/Python混在によるビルド・デプロイエラー</li>
+      <li>Markdownの箇条書き・装飾の正確な表示</li>
+      <li>タグの複数選択UIや削除フローのUX</li>
+      <li>サンプルデータの粒度・分割・業務フロー化</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. アピールポイント</h2>
+    <ul>
+      <li><span class="point">日本語UI・ポップなデザイン</span>：社内利用を意識した親しみやすさ</li>
+      <li><span class="point">WYSIWYGエディタ</span>：Markdown未経験者も使いやすい</li>
+      <li><span class="point">AIチャット</span>：RAG方式でナレッジを活用したQ&A</li>
+      <li><span class="point">SSO・ユーザ管理</span>：セキュリティと利便性の両立</li>
+      <li><span class="point">無料クラウド活用</span>：コストを抑えたスピード開発</li>
+    </ul>
+    <div style="color:#c00; font-size:0.95em; margin-top:-1em;">
+      ※ 本資料はMVPベータ版時点での振り返りです。今後の発展・本番運用に向けた改善が期待されます。
+    </div>
+    <div class="future">
+      <b>今後の改修要望：</b><br>
+      ・日付の自動更新や履歴管理機能の追加（「最終更新日」表示への対応など）<br>
+      ・その他、運用状況に応じた機能拡張
+    </div>
+  </div>
+
+  <div style="text-align:right; color:#888; font-size:0.9em;">最終更新日: 2024年7月</div>
+</body>
+</html> 

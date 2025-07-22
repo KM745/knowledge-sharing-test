@@ -142,6 +142,7 @@ function App() {
   if (page === 'list') {
     return (
       <div style={{ maxWidth: 800, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
           <input
             type="text"
@@ -207,6 +208,7 @@ function App() {
     const html = DOMPurify.sanitize(marked.parse(detail.content || '', { async: false }));
     return (
       <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>{detail.title}</h2>
         <div style={{ marginBottom: 8 }}>{detail.tags.map(t => <span key={t} className="tag-badge">{t}</span>)}</div>
         <div style={{ color: '#888', marginBottom: 8 }}>{detail.date} 作成者: {detail.author}</div>
@@ -279,6 +281,7 @@ function App() {
     };
     return (
       <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>ナレッジ新規登録</h2>
         <div style={{ marginBottom: 8 }}>
           <input
@@ -353,6 +356,7 @@ function App() {
     };
     return (
       <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>ナレッジ編集</h2>
         <div style={{ marginBottom: 8 }}>
           <input
@@ -400,6 +404,7 @@ function App() {
     };
     return (
       <div style={{ maxWidth: 600, margin: '2rem auto', fontFamily: 'sans-serif' }}>
+        <h1 style={{ textAlign: 'center', marginBottom: 32 }}>ナレッジシェアリングシステム（MVPベータ版）</h1>
         <h2>AIチャット</h2>
         <div style={{ marginBottom: 8 }}>
           <textarea
