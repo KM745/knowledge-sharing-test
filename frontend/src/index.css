@@ -1,70 +1,72 @@
 body {
   font-family: 'Yu Gothic UI', 'Noto Sans JP', 'Meiryo', sans-serif;
-  background: #f9f7f8;
+  background: #fcf9f4;
   color: #3a3a3a;
   margin: 0;
   padding: 0;
 }
 
 h1, h2, h3, h4, h5 {
-  font-weight: 700;
-  color: #e07a9a; /* 桜色ピンク */
+  font-family: 'Yu Mincho', '游明朝', 'serif';
+  font-weight: 500;
+  color: #3a3a3a;
   margin-top: 0;
-  margin-bottom: 1.2em;
-  letter-spacing: 0.02em;
+  margin-bottom: 1.5em;
+  letter-spacing: 0.04em;
 }
 
 input, textarea, select {
   font-family: inherit;
-  border: 1.5px solid #e8dbe5;
-  border-radius: 10px;
-  padding: 12px;
-  margin-bottom: 12px;
+  border: 1.5px solid #e5dbc6;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
   background: #fff;
   transition: border 0.2s, box-shadow 0.2s;
-  box-shadow: 0 1px 4px #f7e6ee33;
-  font-size: 1.05em;
+  box-shadow: 0 1px 4px #e5dbc633;
+  font-size: 1.08em;
 }
 input:focus, textarea:focus, select:focus {
-  border: 1.5px solid #e07a9a;
+  border: 1.5px solid #bfa76a;
   outline: none;
-  box-shadow: 0 2px 8px #e07a9a22;
+  box-shadow: 0 2px 8px #bfa76a22;
 }
 
 button {
   font-family: inherit;
-  background: linear-gradient(90deg, #f7c7d6 0%, #e07a9a 100%);
-  color: #fff;
-  border: none;
-  border-radius: 24px;
-  padding: 10px 28px;
-  font-size: 1.08rem;
+  background: #fff;
+  color: #bfa76a;
+  border: 2px solid #bfa76a;
+  border-radius: 28px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin: 6px 6px 6px 0;
+  margin: 10px 10px 10px 0;
   cursor: pointer;
-  box-shadow: 0 2px 8px #e07a9a1a;
-  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
-  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px #bfa76a11;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+  letter-spacing: 0.04em;
 }
 button:hover {
-  background: linear-gradient(90deg, #e07a9a 0%, #f7c7d6 100%);
-  box-shadow: 0 4px 16px #e07a9a33;
+  background: #faf7f2;
+  color: #8c7a3a;
+  box-shadow: 0 4px 16px #bfa76a22;
   transform: translateY(-2px) scale(1.03);
 }
 
 /* タグバッジ */
 .tag-badge {
   display: inline-block;
-  background: #fbeaf2;
-  color: #e07a9a;
-  border-radius: 14px;
-  padding: 4px 16px;
+  background: #faf7f2;
+  color: #bfa76a;
+  border-radius: 16px;
+  padding: 5px 18px;
   font-size: 1em;
   font-weight: 600;
-  margin-right: 8px;
+  margin-right: 10px;
   margin-bottom: 2px;
-  box-shadow: 0 1px 4px #f7e6ee33;
-  border: 1px solid #f7c7d6;
+  box-shadow: 0 1px 4px #e5dbc633;
+  border: 1.5px solid #e5dbc6;
 }
 
 /* テーブル */
@@ -73,57 +75,59 @@ table {
   border-collapse: separate;
   border-spacing: 0;
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px #e07a9a1a;
+  border-radius: 22px;
+  box-shadow: 0 2px 16px #e5dbc633;
   overflow: hidden;
 }
 th, td {
-  padding: 16px 12px;
+  padding: 20px 16px;
   text-align: left;
 }
 th {
-  background: #fbeaf2;
-  color: #e07a9a;
-  font-weight: 700;
-  border-bottom: 2px solid #f7c7d6;
+  background: #faf7f2;
+  color: #bfa76a;
+  font-family: 'Yu Mincho', '游明朝', 'serif';
+  font-weight: 600;
+  border-bottom: 2px solid #e5dbc6;
 }
 tr:nth-child(even) td {
-  background: #f9f7f8;
+  background: #fcf9f4;
 }
 tr:hover td {
-  background: #f7e6ee;
+  background: #f5f1e6;
 }
 
 /* チェックボックスラベル */
 label > input[type="checkbox"] {
-  accent-color: #e07a9a;
+  accent-color: #bfa76a;
   margin-right: 4px;
 }
 
 /* エディタのカスタム */
 .toastui-editor-defaultUI {
-  border-radius: 14px;
-  box-shadow: 0 2px 8px #f7e6ee33;
-  border: 1.5px solid #e8dbe5;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #e5dbc633;
+  border: 1.5px solid #e5dbc6;
 }
 
 /* 汎用カード・パネル */
 .panel, .card {
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px #e07a9a1a;
-  padding: 2em 2em 1.5em 2em;
-  margin-bottom: 2em;
+  background: #faf7f2;
+  border-radius: 22px;
+  box-shadow: 0 2px 16px #e5dbc633;
+  padding: 2.5em 2.5em 2em 2.5em;
+  margin-bottom: 2.5em;
+  border: 1.5px solid #e5dbc6;
 }
 
 /* リンク */
 a {
-  color: #e07a9a;
+  color: #bfa76a;
   text-decoration: underline;
   transition: color 0.2s;
 }
 a:hover {
-  color: #b85c7a;
+  color: #8c7a3a;
 }
 
 /* レスポンシブ */
@@ -132,9 +136,9 @@ a:hover {
     padding: 0 4px;
   }
   .panel, .card {
-    padding: 1em 0.5em 1em 0.5em;
+    padding: 1.2em 0.5em 1em 0.5em;
   }
   th, td {
-    padding: 10px 4px;
+    padding: 12px 4px;
   }
 }
