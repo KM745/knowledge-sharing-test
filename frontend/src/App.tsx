@@ -50,7 +50,7 @@ function App() {
     if (page !== 'list') return;
     setLoading(true);
     setError('');
-    fetch('http://localhost:8000/knowledges')
+    fetch('https://knowledge-sharing-test.onrender.com/knowledges')
       .then(res => {
         if (!res.ok) throw new Error('APIエラー');
         return res.json();
@@ -65,7 +65,7 @@ function App() {
     if (page === 'detail' && selected) {
       setDetailLoading(true);
       setDetailError('');
-      fetch(`http://localhost:8000/knowledges/${selected.id}`)
+      fetch(`https://knowledge-sharing-test.onrender.com/knowledges/${selected.id}`)
         .then(res => {
           if (!res.ok) throw new Error('APIエラー');
           return res.json();
@@ -229,7 +229,7 @@ function App() {
           }
           setDeleteLoading(true);
           try {
-            const res = await fetch(`http://localhost:8000/knowledges/${detail.id}`, { method: 'DELETE' });
+            const res = await fetch(`https://knowledge-sharing-test.onrender.com/knowledges/${detail.id}`, { method: 'DELETE' });
             if (!res.ok) throw new Error('APIエラー');
             setPage('list');
           } catch {
@@ -258,7 +258,7 @@ function App() {
       setCreateLoading(true);
       setCreateError('');
       try {
-        const res = await fetch('http://localhost:8000/knowledges', {
+        const res = await fetch('https://knowledge-sharing-test.onrender.com/knowledges', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -332,7 +332,7 @@ function App() {
       setEditLoading(true);
       setEditError('');
       try {
-        const res = await fetch(`http://localhost:8000/knowledges/${selected.id}`, {
+        const res = await fetch(`https://knowledge-sharing-test.onrender.com/knowledges/${selected.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
